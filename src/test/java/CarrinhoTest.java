@@ -10,4 +10,14 @@ public class CarrinhoTest {
 
         assertEquals(0.0, carrinho.calcularTotal());
     }
+
+    @Test
+    void adicionarItemAumentaTotal() {
+        Carrinho carrinho = new Carrinho();
+        Produto produto = new Produto("Arroz", 10.0, 10);
+
+        carrinho.adicionarItem(produto, 2);
+
+        assertEquals(20.0, carrinho.calcularTotal());
+    }
 }
