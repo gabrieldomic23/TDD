@@ -18,6 +18,13 @@ public class Carrinho {
         }
     }
 
+    public void removerItem(Produto produto, int quantidade) {
+
+        for (int i = 0; i < quantidade; i++) {
+            produtos.remove(produto);
+        }
+    }
+
     public double calcularTotal() {
         double total = 0.0;
 
