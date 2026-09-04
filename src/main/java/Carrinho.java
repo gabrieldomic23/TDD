@@ -6,6 +6,7 @@ public class Carrinho {
     private final List<Produto> produtos = new ArrayList<>();
 
     private double desconto = 0.0;
+    private String cupomAplicado;
 
     public void adicionarItem(Produto produto, int quantidade) {
 
@@ -39,6 +40,14 @@ public class Carrinho {
     public void aplicarCupom(String cupom) {
 
         if ("DESCONTO10".equals(cupom)) {
+
+            if (cupom.equals(cupomAplicado)) {
+                throw new CupomJaAplicadoException(
+                        "Cupom já aplicado"
+                );
+            }
+
+            cupomAplicado = cupom;
             desconto = 0.10;
         }
     }
