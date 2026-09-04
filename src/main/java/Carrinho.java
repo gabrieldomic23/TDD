@@ -6,6 +6,13 @@ public class Carrinho {
     private List<Produto> produtos = new ArrayList<>();
 
     public void adicionarItem(Produto produto, int quantidade) {
+
+        if (quantidade > produto.getEstoque()) {
+            throw new EstoqueInsuficienteException(
+                    "Quantidade solicitada maior que o estoque disponível"
+            );
+        }
+
         for (int i = 0; i < quantidade; i++) {
             produtos.add(produto);
         }

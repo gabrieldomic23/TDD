@@ -1,2 +1,3 @@
 Produto.class
+EstoqueInsuficienteException.class
 Carrinho.class
