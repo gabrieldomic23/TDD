@@ -5,6 +5,8 @@ public class Carrinho {
 
     private final List<Produto> produtos = new ArrayList<>();
 
+    private double desconto = 0.0;
+
     public void adicionarItem(Produto produto, int quantidade) {
 
         if (quantidade > produto.getEstoque()) {
@@ -21,24 +23,34 @@ public class Carrinho {
     }
 
     private void adicionarProdutos(Produto produto, int quantidade) {
+
         for (int i = 0; i < quantidade; i++) {
             produtos.add(produto);
         }
     }
 
     private void removerProdutos(Produto produto, int quantidade) {
+
         for (int i = 0; i < quantidade; i++) {
             produtos.remove(produto);
         }
     }
 
+    public void aplicarCupom(String cupom) {
+
+        if ("DESCONTO10".equals(cupom)) {
+            desconto = 0.10;
+        }
+    }
+
     public double calcularTotal() {
+
         double total = 0.0;
 
         for (Produto produto : produtos) {
             total += produto.getPreco();
         }
 
-        return total;
+        return total - (total * desconto);
     }
 }
