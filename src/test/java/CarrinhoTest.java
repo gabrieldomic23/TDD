@@ -8,7 +8,6 @@ public class CarrinhoTest {
     @Test
     void carrinhoVazioTemTotalZero() {
         Carrinho carrinho = new Carrinho();
-
         assertEquals(0.0, carrinho.calcularTotal());
     }
 
@@ -31,5 +30,16 @@ public class CarrinhoTest {
                 EstoqueInsuficienteException.class,
                 () -> carrinho.adicionarItem(produto, 6)
         );
+    }
+
+    @Test
+    void removerItemReduzTotal() {
+        Carrinho carrinho = new Carrinho();
+        Produto produto = new Produto("Arroz", 10.0, 10);
+
+        carrinho.adicionarItem(produto, 2);
+        carrinho.removerItem(produto, 1);
+
+        assertEquals(10.0, carrinho.calcularTotal());
     }
 }
