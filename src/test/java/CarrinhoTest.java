@@ -5,16 +5,25 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CarrinhoTest {
 
+    private Carrinho criarCarrinho() {
+        return new Carrinho();
+    }
+
+    private Produto criarProduto() {
+        return new Produto("Arroz", 10.0, 10);
+    }
+
     @Test
     void carrinhoVazioTemTotalZero() {
-        Carrinho carrinho = new Carrinho();
+        Carrinho carrinho = criarCarrinho();
+
         assertEquals(0.0, carrinho.calcularTotal());
     }
 
     @Test
     void adicionarItemAumentaTotal() {
-        Carrinho carrinho = new Carrinho();
-        Produto produto = new Produto("Arroz", 10.0, 10);
+        Carrinho carrinho = criarCarrinho();
+        Produto produto = criarProduto();
 
         carrinho.adicionarItem(produto, 2);
 
@@ -23,7 +32,7 @@ public class CarrinhoTest {
 
     @Test
     void naoPodeAdicionarQuantidadeMaiorQueEstoque() {
-        Carrinho carrinho = new Carrinho();
+        Carrinho carrinho = criarCarrinho();
         Produto produto = new Produto("Arroz", 10.0, 5);
 
         assertThrows(
@@ -34,8 +43,8 @@ public class CarrinhoTest {
 
     @Test
     void removerItemReduzTotal() {
-        Carrinho carrinho = new Carrinho();
-        Produto produto = new Produto("Arroz", 10.0, 10);
+        Carrinho carrinho = criarCarrinho();
+        Produto produto = criarProduto();
 
         carrinho.adicionarItem(produto, 2);
         carrinho.removerItem(produto, 1);

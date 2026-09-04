@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Carrinho {
 
-    private List<Produto> produtos = new ArrayList<>();
+    private final List<Produto> produtos = new ArrayList<>();
 
     public void adicionarItem(Produto produto, int quantidade) {
 
@@ -13,13 +13,20 @@ public class Carrinho {
             );
         }
 
+        adicionarProdutos(produto, quantidade);
+    }
+
+    public void removerItem(Produto produto, int quantidade) {
+        removerProdutos(produto, quantidade);
+    }
+
+    private void adicionarProdutos(Produto produto, int quantidade) {
         for (int i = 0; i < quantidade; i++) {
             produtos.add(produto);
         }
     }
 
-    public void removerItem(Produto produto, int quantidade) {
-
+    private void removerProdutos(Produto produto, int quantidade) {
         for (int i = 0; i < quantidade; i++) {
             produtos.remove(produto);
         }
