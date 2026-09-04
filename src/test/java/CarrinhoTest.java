@@ -51,4 +51,16 @@ public class CarrinhoTest {
 
         assertEquals(10.0, carrinho.calcularTotal());
     }
+
+    @Test
+void cupomValidoReduzTotal() {
+    Carrinho carrinho = criarCarrinho();
+    Produto produto = criarProduto();
+
+    carrinho.adicionarItem(produto, 2);
+    carrinho.aplicarCupom("DESCONTO10");
+
+    assertEquals(18.0, carrinho.calcularTotal());
+}
+
 }
