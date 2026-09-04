@@ -74,4 +74,14 @@ public class CarrinhoTest {
                 () -> carrinho.aplicarCupom("DESCONTO10")
         );
     }
+
+    @Test
+    void naoPodeFinalizarCarrinhoVazio() {
+        Carrinho carrinho = criarCarrinho();
+
+        assertThrows(
+                CarrinhoVazioException.class,
+                carrinho::finalizar
+        );
+    }
 }
