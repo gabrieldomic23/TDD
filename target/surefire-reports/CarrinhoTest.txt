@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: CarrinhoTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s -- in CarrinhoTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s -- in CarrinhoTest

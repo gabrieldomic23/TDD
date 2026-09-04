@@ -1,4 +1,5 @@
 CupomJaAplicadoException.class
+CarrinhoVazioException.class
 Carrinho.class
 Produto.class
 EstoqueInsuficienteException.class

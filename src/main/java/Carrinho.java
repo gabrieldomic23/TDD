@@ -62,4 +62,13 @@ public class Carrinho {
 
         return total - (total * desconto);
     }
+
+    public void finalizar() {
+
+        if (produtos.isEmpty()) {
+            throw new CarrinhoVazioException(
+                    "Não é possível finalizar um carrinho vazio"
+            );
+        }
+    }
 }

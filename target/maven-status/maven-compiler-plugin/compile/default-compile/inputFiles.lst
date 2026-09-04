@@ -1,4 +1,5 @@
 /workspaces/TDD/src/main/java/Carrinho.java
+/workspaces/TDD/src/main/java/CarrinhoVazioException.java
 /workspaces/TDD/src/main/java/CupomJaAplicadoException.java
 /workspaces/TDD/src/main/java/EstoqueInsuficienteException.java
 /workspaces/TDD/src/main/java/Produto.java
