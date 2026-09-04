@@ -53,14 +53,25 @@ public class CarrinhoTest {
     }
 
     @Test
-void cupomValidoReduzTotal() {
-    Carrinho carrinho = criarCarrinho();
-    Produto produto = criarProduto();
+    void cupomValidoReduzTotal() {
+        Carrinho carrinho = criarCarrinho();
+        Produto produto = criarProduto();
 
-    carrinho.adicionarItem(produto, 2);
-    carrinho.aplicarCupom("DESCONTO10");
+        carrinho.adicionarItem(produto, 2);
+        carrinho.aplicarCupom("DESCONTO10");
 
-    assertEquals(18.0, carrinho.calcularTotal());
-}
+        assertEquals(18.0, carrinho.calcularTotal());
+    }
 
+    @Test
+    void naoPodeAplicarMesmoCupomDuasVezes() {
+        Carrinho carrinho = criarCarrinho();
+
+        carrinho.aplicarCupom("DESCONTO10");
+
+        assertThrows(
+                CupomJaAplicadoException.class,
+                () -> carrinho.aplicarCupom("DESCONTO10")
+        );
+    }
 }
